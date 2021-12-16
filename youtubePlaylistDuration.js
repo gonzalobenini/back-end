@@ -94,12 +94,9 @@ var nextPageToken;
   function main(){  
     let playlistLink = 'https://www.youtube.com/playlist?list=PL2MHu9iz8B8d1p7-LsmoeSENUTCoVJ6Id';
   
-    for (index in playlistLink){ // consigue la ID de la playlist
-      if (playlistLink[index] == "=") {
-        playlistLink = playlistLink.substr(parseInt(index)+1,playlistLink.length);
-        break
-      }      
-    };
+    const index = playlistLink.indexOf("=")
+
+    const playListId = playlistLink.slice(index+1,-1)
   
     console.log(playlistLink);
 
@@ -116,6 +113,6 @@ var nextPageToken;
     }
 
     getFullPlaylistLength()
-}
+  }
 
 main();
